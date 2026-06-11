@@ -1,0 +1,177 @@
+/** ------------------------------- COLORS ----------------------------- */
+:root {
+  --whiteBlue: #eef4fa;
+  --paleBlue: #c2dcef;
+  --skyBlue: #96c3e3;
+  --lightBlue: #3e92cc;
+  --midBlue: #2a628f;
+  --darkBlue: #16324f;
+  --deepBlue: #13293d;
+  --darkTurquoise: #18435a;
+
+  --bgPage: var(--whiteBlue);
+  --bgHeader: var(--deepBlue);
+  --bgNav: var(--darkTurquoise);
+  --bgCard: var(--paleBlue);
+  --bgControl: var(--deepBlue);
+  --bgOutput: var(--whiteBlue);
+  --txtControl: var(--skyBlue);
+  --txtActive: var(--whiteBlue);
+  --txtConvTitle: var(--deepBlue);
+  --txtCard: var(--darkBlue);
+  --accent: var(--lightBlue);
+  --borderOutput: var(--deepBlue);
+}
+
+[data-theme="dark"] {
+  --bgPage: var(--deepBlue);
+  --bgCard: var(--darkTurquoise);
+  --txtConvTitle: var(--whiteBlue);
+  --txtCard: var(--paleBlue);
+  --bgControl: var(--skyBlue);
+}
+
+/** ------------------------------- BASICS ----------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  display: flex;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bgPage);
+  color: var(--txtConvTitle);
+}
+
+/** ------------------------------- HEADER ----------------------------- */
+
+header {
+  display: flex;
+  background-color: var(--bgHeader);
+  padding: 20px;
+  color: var(--txtControl);
+  flex-direction: row;
+  position: relative;
+  text-transform: uppercase;
+}
+
+#mainTitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#themeBtn {
+  margin-left: auto;
+}
+
+/** ------------------------------- NAV ----------------------------- */
+
+nav {
+  background-color: var(--bgNav);
+  color: var(--txtControl);
+}
+nav ul {
+  width: 100%;
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  flex: auto;
+}
+
+nav ul li .btn {
+  border: none;
+  background-color: transparent;
+  color: var(--txtControl);
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+nav ul li .btn.active {
+  background-color: var(--accent);
+  color: var(--txtActive);
+}
+
+/** ------------------------------- MAIN ----------------------------- */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.converter {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid var(--accent);
+  background-color: var(--bgCard);
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+  margin: 20px;
+  align-content: center;
+  align-items: center;
+}
+
+#toValue {
+  display: block;
+  width: 300px;
+  height: 25px;
+  background-color: var(--bgOutput);
+  color: var(--txtCard);
+  border: 2px solid var(--borderOutput);
+  margin: 20px;
+  border-radius: 5px;
+}
+
+#fromUnit,
+#toUnit,
+#fromValue {
+  display: block;
+  color: var(--txtControl);
+  background-color: var(--bgControl);
+  border-radius: 5px;
+  height: 25px;
+  margin: 20px;
+  width: 300px;
+}
+
+main .converter label {
+  font-size: 25px;
+  margin: 20px;
+}
+
+main .converter h2 {
+  text-transform: uppercase;
+  font-size: 35px;
+  margin: 20px;
+}
+
+/** ------------------------------- BUTTONS ----------------------------- */
+
+#themeBtn,
+#menuBtn, #swapBtn {
+  padding: 5px;
+  background-color: var(--bgControl);
+  color: var(--txtControl);
+  border-radius: 5px;
+}
+
+#swapBtn {
+  margin: 30px;
+  font-size: 25px;
+  width: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

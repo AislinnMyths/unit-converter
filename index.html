@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Converter</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!--* ------------------- HEADER  ------------------- -->
+    <header>
+      <h1 class="title" id="mainTitle">Units converter</h1>
+
+      <button class="btn" id="themeBtn" aria-label="Light/Dark themes">
+        <i data-lucide="sun"></i>
+      </button>
+      <button class="btn" id="menuBtn" aria-label="Converters Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!--* ------------------- NAV  ------------------- -->
+    <nav>
+      <ul>
+        <li><button class="btn">Area</button></li>
+        <li><button class="btn">Length</button></li>
+        <li><button class="btn">Mass</button></li>
+        <li><button class="btn">Speed</button></li>
+        <li><button class="btn">Volume</button></li>
+        <li><button class="btn">Temperature</button></li>
+        <li><button class="btn">Currency</button></li>
+      </ul>
+    </nav>
+
+    <!--* ------------------- MAIN  ------------------- -->
+    <main>
+      <div class="converter">
+        <h2 id="convTitle">Converter Title</h2>
+        <div class="convFrom">
+          <label for="SelectUnitFrom">From:</label>
+          <select name="selUnitFrom" id="fromUnit"></select>
+          <input type="number" id="fromValue" />
+        </div>
+        <button class="btn" id="swapBtn" aria-label="Swap units">
+          <i data-lucide="refresh-cw"></i>
+        </button>
+        <div class="convTo">
+          <label for="SelectUnitTo">To:</label>
+          <select name="selUnitTo" id="toUnit"></select>
+          <output id="toValue"></output>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

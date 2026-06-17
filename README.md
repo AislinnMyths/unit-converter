@@ -67,8 +67,8 @@ Open `index.html` directly in a browser. No server or installation required.
 
 ## 📌 Project Status
 
-- [ ] Base HTML structure
-- [ ] CSS styles and dark mode
+- [x] Base HTML structure
+- [x] CSS styles and dark mode
 - [ ] Length converter
 - [ ] Mass converter
 - [ ] Area converter

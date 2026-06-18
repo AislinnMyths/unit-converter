@@ -10,6 +10,7 @@ const fromValue = document.getElementById("fromValue");
 const toValue = document.getElementById("toValue");
 const convTitle = document.getElementById("convTitle");
 const navMenu = document.querySelector("nav");
+const swapBtn = document.getElementById("swapBtn");
 
 //* --------------------- LISTENERS ---------------------
 
@@ -22,6 +23,8 @@ navMenu.addEventListener("click", (event) => {
 fromValue.addEventListener("input", calculus);
 fromUnit.addEventListener("change", calculus);
 toUnit.addEventListener("change", calculus);
+swapBtn.addEventListener("click", swapUnits);
+
 //* --------------------- FUNTCIONS ---------------------
 
 let currentConverter = converters.length;
@@ -64,6 +67,13 @@ function calculus() {
     Number(fromValue.value) * (fromUnitData.factor / toUnitData.factor);
   const rounded = Number(result.toFixed(4));
   toValue.textContent = rounded;
+}
+
+function swapUnits() {
+  const temp = fromUnit.value;
+  fromUnit.value = toUnit.value;
+  toUnit.value = temp;
+  calculus();
 }
 
 //* --------------------- INIT ---------------------

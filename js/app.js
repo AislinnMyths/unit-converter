@@ -12,22 +12,11 @@ const convTitle = document.getElementById("convTitle");
 const navMenu = document.querySelector("nav");
 const swapBtn = document.getElementById("swapBtn");
 
-//* --------------------- LISTENERS ---------------------
-
-navMenu.addEventListener("click", (event) => {
-  const button = event.target.closest("button");
-  if (!button) return;
-  updateConverter(converters[button.dataset.convName]);
-});
-
-fromValue.addEventListener("input", calculus);
-fromUnit.addEventListener("change", calculus);
-toUnit.addEventListener("change", calculus);
-swapBtn.addEventListener("click", swapUnits);
-
-//* --------------------- FUNTCIONS ---------------------
+//* --------------------- STATE ---------------------
 
 let currentConverter = converters.length;
+
+//* --------------------- FUNTCIONS ---------------------
 
 function fillUnitSelects() {
   fromUnit.innerHTML = "";
@@ -75,6 +64,19 @@ function swapUnits() {
   toUnit.value = temp;
   calculus();
 }
+
+//* --------------------- LISTENERS ---------------------
+
+navMenu.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+  updateConverter(converters[button.dataset.convName]);
+});
+
+fromValue.addEventListener("input", calculus);
+fromUnit.addEventListener("change", calculus);
+toUnit.addEventListener("change", calculus);
+swapBtn.addEventListener("click", swapUnits);
 
 //* --------------------- INIT ---------------------
 

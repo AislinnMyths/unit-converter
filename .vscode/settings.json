@@ -1,0 +1,7 @@
+{
+  "conventionalCommits.scopes": [
+    "nav",
+    "readme",
+    "core"
+  ]
+}

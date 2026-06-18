@@ -15,6 +15,7 @@ const swapBtn = document.getElementById("swapBtn");
 //* --------------------- STATE ---------------------
 
 let currentConverter = converters.length;
+let lastValidValue = "";
 
 //* --------------------- FUNTCIONS ---------------------
 
@@ -41,6 +42,16 @@ function updateConverter(converter) {
   toValue.textContent = "";
 }
 
+function validateInput() {
+  const regex = /^[0-9]*[.,]?[0-9]*$/;
+  if (regex.test(fromValue.value)) {
+    lastValidValue = fromValue.value;
+    calculus();
+  } else {
+    fromValue.value = lastValidValue;
+  }
+}
+
 function calculus() {
   if (!fromValue.value) {
     return;
@@ -53,7 +64,8 @@ function calculus() {
   );
 
   const result =
-    Number(fromValue.value) * (fromUnitData.factor / toUnitData.factor);
+    Number(fromValue.value.replace(",", ".")) *
+    (fromUnitData.factor / toUnitData.factor);
   const rounded = Number(result.toFixed(4));
   toValue.textContent = rounded;
 }
@@ -73,7 +85,7 @@ navMenu.addEventListener("click", (event) => {
   updateConverter(converters[button.dataset.convName]);
 });
 
-fromValue.addEventListener("input", calculus);
+fromValue.addEventListener("input", validateInput);
 fromUnit.addEventListener("change", calculus);
 toUnit.addEventListener("change", calculus);
 swapBtn.addEventListener("click", swapUnits);

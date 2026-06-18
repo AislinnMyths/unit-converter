@@ -6,6 +6,8 @@ import { converters } from "./data.js";
 
 const fromUnit = document.getElementById("fromUnit");
 const toUnit = document.getElementById("toUnit");
+const fromValue = document.getElementById("fromValue");
+const toValue = document.getElementById("toValue");
 const convTitle = document.getElementById("convTitle");
 const navMenu = document.querySelector("nav");
 
@@ -17,6 +19,9 @@ navMenu.addEventListener("click", (event) => {
   updateConverter(converters[button.dataset.convName]);
 });
 
+fromValue.addEventListener("input", calculus);
+fromUnit.addEventListener("change", calculus);
+toUnit.addEventListener("change", calculus);
 //* --------------------- FUNTCIONS ---------------------
 
 let currentConverter = converters.length;
@@ -40,6 +45,25 @@ function updateConverter(converter) {
   currentConverter = converter;
   convTitle.textContent = converter.name;
   fillUnitSelects();
+  fromValue.value = "";
+  toValue.textContent = "";
+}
+
+function calculus() {
+  if (!fromValue.value) {
+    return;
+  }
+  const fromUnitData = currentConverter.units.find(
+    (unit) => unit.id === fromUnit.value,
+  );
+  const toUnitData = currentConverter.units.find(
+    (unit) => unit.id === toUnit.value,
+  );
+
+  const result =
+    Number(fromValue.value) * (fromUnitData.factor / toUnitData.factor);
+  const rounded = Number(result.toFixed(4));
+  toValue.textContent = rounded;
 }
 
 //* --------------------- INIT ---------------------

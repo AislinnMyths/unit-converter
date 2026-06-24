@@ -32,6 +32,7 @@ function fillUnitSelects() {
     fromUnit.appendChild(optionFrom);
     toUnit.appendChild(optionTo);
   });
+  toUnit.selectedIndex = 1;
 }
 
 function updateConverter(converter) {

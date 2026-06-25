@@ -11,6 +11,7 @@ const toValue = document.getElementById("toValue");
 const convTitle = document.getElementById("convTitle");
 const navMenu = document.querySelector("nav");
 const swapBtn = document.getElementById("swapBtn");
+const themeBtn = document.getElementById("themeBtn");
 
 //* --------------------- STATE ---------------------
 
@@ -78,6 +79,17 @@ function swapUnits() {
   calculus();
 }
 
+function toggleTheme() {
+  if (document.documentElement.hasAttribute("data-theme")) {
+    document.documentElement.removeAttribute("data-theme");
+    themeBtn.innerHTML = '<i data-lucide="sun"></i>';
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeBtn.innerHTML = '<i data-lucide="moon"></i>';
+  }
+  lucide.createIcons();
+}
+
 //* --------------------- LISTENERS ---------------------
 
 navMenu.addEventListener("click", (event) => {
@@ -90,6 +102,7 @@ fromValue.addEventListener("input", validateInput);
 fromUnit.addEventListener("change", calculus);
 toUnit.addEventListener("change", calculus);
 swapBtn.addEventListener("click", swapUnits);
+themeBtn.addEventListener("click", toggleTheme);
 
 //* --------------------- INIT ---------------------
 

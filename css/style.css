@@ -21,6 +21,7 @@
   --txtCard: var(--darkBlue);
   --accent: var(--lightBlue);
   --borderOutput: var(--deepBlue);
+  --txtHeader: var(--skyBlue);
 }
 
 [data-theme="dark"] {
@@ -28,6 +29,7 @@
   --bgCard: var(--darkTurquoise);
   --txtConvTitle: var(--whiteBlue);
   --txtCard: var(--paleBlue);
+  --txtControl: var(--deepBlue);
   --bgControl: var(--skyBlue);
 }
 
@@ -54,7 +56,7 @@ header {
   display: flex;
   background-color: var(--bgHeader);
   padding: 20px;
-  color: var(--txtControl);
+  color: var(--txtHeader);
   flex-direction: row;
   position: relative;
   text-transform: uppercase;
@@ -73,7 +75,7 @@ header {
 
 nav {
   background-color: var(--bgNav);
-  color: var(--txtControl);
+  color: var(--txtHeader);
 }
 nav ul {
   width: 100%;
@@ -88,7 +90,7 @@ nav ul li {
 nav ul li .btn {
   border: none;
   background-color: transparent;
-  color: var(--txtControl);
+  color: var(--txtHeader);
   font-size: 20px;
   text-align: center;
   padding: 10px;

@@ -36,15 +36,7 @@ converter/
 │   └── themes.css       # Light and dark mode
 └── js/
     ├── app.js           # Main logic and navigation
-    ├── data.js          # Units and conversion factors
-    └── converters/
-        ├── length.js
-        ├── volume.js
-        ├── mass.js
-        ├── area.js
-        ├── speed.js
-        ├── temperature.js
-        └── currency.js
+    └── data.js          # Units and conversion factors
 ```
 
 ## ⚙️ Conversion Logic
@@ -69,10 +61,10 @@ Open `index.html` directly in a browser. No server or installation required.
 
 - [x] Base HTML structure
 - [x] CSS styles and dark mode
-- [ ] Length converter
-- [ ] Mass converter
-- [ ] Area converter
-- [ ] Volume converter
-- [ ] Speed converter
+- [x] Length converter
+- [x] Mass converter
+- [x] Area converter
+- [x] Volume converter
+- [x] Speed converter
 - [ ] Temperature converter
 - [ ] Currency converter (API)

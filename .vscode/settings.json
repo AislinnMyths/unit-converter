@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "nav",
     "readme",
-    "core"
+    "core",
+    "ui"
   ]
 }

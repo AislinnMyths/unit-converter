@@ -55,21 +55,51 @@ function validateInput() {
 }
 
 function calculus() {
-  if (!fromValue.value) {
-    return;
-  }
-  const fromUnitData = currentConverter.units.find(
-    (unit) => unit.id === fromUnit.value,
-  );
-  const toUnitData = currentConverter.units.find(
-    (unit) => unit.id === toUnit.value,
-  );
+  if (currentConverter === converters.temperature) {
+    convertTemperature();
+  } else {
+    if (!fromValue.value) {
+      return;
+    }
+    const fromUnitData = currentConverter.units.find(
+      (unit) => unit.id === fromUnit.value,
+    );
+    const toUnitData = currentConverter.units.find(
+      (unit) => unit.id === toUnit.value,
+    );
 
-  const result =
-    Number(fromValue.value.replace(",", ".")) *
-    (fromUnitData.factor / toUnitData.factor);
-  const rounded = Number(result.toFixed(4));
-  toValue.textContent = rounded;
+    const result =
+      Number(fromValue.value.replace(",", ".")) *
+      (fromUnitData.factor / toUnitData.factor);
+    const rounded = Number(result.toFixed(4));
+    toValue.textContent = rounded;
+  }
+}
+
+function convertTemperature() {
+  const value = Number(fromValue.value.replace(",", "."));
+  switch (`${fromUnit.value}-${toUnit.value}`) {
+    case "c-f":
+      toValue.textContent = (value * 9) / 5 + 32;
+      break;
+    case "c-k":
+      toValue.textContent = value + 273.15;
+      break;
+    case "f-c":
+      toValue.textContent = ((value - 32) * 5) / 9;
+      break;
+    case "f-k":
+      toValue.textContent = ((value - 32) * 5) / 9 + 273.15;
+      break;
+    case "k-c":
+      toValue.textContent = value - 273.15;
+      break;
+    case "k-f":
+      toValue.textContent = ((value - 273.15) * 9) / 5 + 32;
+      break;
+    default:
+      toValue.textContent = value;
+  }
 }
 
 function swapUnits() {

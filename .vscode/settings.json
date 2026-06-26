@@ -3,6 +3,7 @@
     "nav",
     "readme",
     "core",
-    "ui"
+    "ui",
+    "temperature"
   ]
 }

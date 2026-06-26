@@ -28,7 +28,7 @@
   --bgPage: var(--deepBlue);
   --bgCard: var(--darkTurquoise);
   --txtConvTitle: var(--whiteBlue);
-  --txtCard: var(--paleBlue);
+  --txtCard: var(--deepBlue);
   --txtControl: var(--deepBlue);
   --bgControl: var(--skyBlue);
 }

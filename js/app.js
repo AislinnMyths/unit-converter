@@ -17,6 +17,7 @@ const themeBtn = document.getElementById("themeBtn");
 
 let currentConverter = converters.length;
 let lastValidValue = "";
+let exchangeRates = null;
 
 //* --------------------- FUNTCIONS ---------------------
 
@@ -42,6 +43,9 @@ function updateConverter(converter) {
   fillUnitSelects();
   fromValue.value = "";
   toValue.textContent = "";
+  if (currentConverter === converters.currency) {
+    fetchRates();
+  }
 }
 
 function validateInput() {
@@ -57,6 +61,8 @@ function validateInput() {
 function calculus() {
   if (currentConverter === converters.temperature) {
     convertTemperature();
+  } else if (currentConverter === converters.currency) {
+    convertCurrency();
   } else {
     if (!fromValue.value) {
       return;
@@ -118,6 +124,29 @@ function toggleTheme() {
     themeBtn.innerHTML = '<i data-lucide="moon"></i>';
   }
   lucide.createIcons();
+}
+
+async function fetchRates() {
+  try {
+    const response = await fetch(
+      "https://api.frankfurter.dev/v1/latest?base=USD",
+    );
+    const data = await response.json();
+    exchangeRates = data.rates;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function convertCurrency() {
+  if (!fromValue.value) {
+    return;
+  }
+  if (!exchangeRates) return;
+  const amount = Number(fromValue.value.replace(",", "."));
+  const fromRate = fromUnit.value === "USD" ? 1 : exchangeRates[fromUnit.value];
+  const toRate = toUnit.value === "USD" ? 1 : exchangeRates[toUnit.value];
+  toValue.textContent = (amount / fromRate) * toRate;
 }
 
 //* --------------------- LISTENERS ---------------------

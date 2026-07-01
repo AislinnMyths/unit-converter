@@ -37,13 +37,8 @@ export const currency = {
     { id: "PLN", name: "polish zloty" },
     { id: "CZK", name: "czech koruna" },
     { id: "HUF", name: "hungarian forint" },
-    { id: "ARS", name: "argentine peso" },
-    { id: "CLP", name: "chilean peso" },
-    { id: "COP", name: "colombian peso" },
     { id: "ZAR", name: "south african rand" },
     { id: "TRY", name: "turkish lira" },
-    { id: "SAR", name: "saudi riyal" },
-    { id: "AED", name: "uae dirham" },
   ],
 };
 

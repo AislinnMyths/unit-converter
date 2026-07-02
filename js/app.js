@@ -154,6 +154,11 @@ function convertCurrency() {
 navMenu.addEventListener("click", (event) => {
   const button = event.target.closest("button");
   if (!button) return;
+  const activeBtn = document.querySelector(".active");
+  if (activeBtn) {
+    activeBtn.classList.remove("active");
+  }
+  button.classList.add("active");
   updateConverter(converters[button.dataset.convName]);
 });
 

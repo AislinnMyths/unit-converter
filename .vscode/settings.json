@@ -4,6 +4,7 @@
     "readme",
     "core",
     "ui",
-    "temperature"
+    "temperature",
+    "currency"
   ]
 }

@@ -12,6 +12,7 @@ const convTitle = document.getElementById("convTitle");
 const navMenu = document.querySelector("nav");
 const swapBtn = document.getElementById("swapBtn");
 const themeBtn = document.getElementById("themeBtn");
+const menuBtn = document.getElementById("menuBtn");
 
 //* --------------------- STATE ---------------------
 
@@ -46,7 +47,7 @@ function updateConverter(converter) {
   if (currentConverter === converters.currency) {
     fetchRates();
   }
-  document.documentElement.style.setProperty('--accent', converter.color);
+  document.documentElement.style.setProperty("--accent", converter.color);
 }
 
 function validateInput() {
@@ -150,6 +151,9 @@ function convertCurrency() {
   toValue.textContent = (amount / fromRate) * toRate;
 }
 
+function toggleMenu() {
+  navMenu.classList.toggle("open");
+}
 //* --------------------- LISTENERS ---------------------
 
 navMenu.addEventListener("click", (event) => {
@@ -163,6 +167,7 @@ navMenu.addEventListener("click", (event) => {
   updateConverter(converters[button.dataset.convName]);
 });
 
+menuBtn.addEventListener("click", toggleMenu);
 fromValue.addEventListener("input", validateInput);
 fromUnit.addEventListener("change", calculus);
 toUnit.addEventListener("change", calculus);

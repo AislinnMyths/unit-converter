@@ -158,10 +158,15 @@ main .converter h2 {
   margin: 20px;
 }
 
+#menuBtn {
+  display: none;
+}
+
 /** ------------------------------- BUTTONS ----------------------------- */
 
 #themeBtn,
-#menuBtn, #swapBtn {
+#menuBtn,
+#swapBtn {
   padding: 5px;
   background-color: var(--bgControl);
   color: var(--txtControl);
@@ -176,4 +181,46 @@ main .converter h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/** ------------------------------- MEDIA QUERY----------------------------- */
+
+@media (max-width: 768px) {
+  main {
+    margin: 10px;
+  }
+  .converter {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    align-items: stretch;
+  }
+
+  #fromUnit,
+  #toUnit,
+  #fromValue,
+  #toValue {
+    width: calc(100% - 40px);
+  }
+
+  main .converter h2 {
+    text-align: center;
+  }
+
+  #swapBtn {
+    align-self: center;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav.open ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #menuBtn {
+    display: flex;
+  }
 }

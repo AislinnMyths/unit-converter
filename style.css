@@ -4,7 +4,6 @@
   --paleBlue: #aed1e6;
   --skyBlue: #96c3e3;
   --lightBlue: #3e92cc;
-  --midBlue: #2a628f;
   --darkBlue: #16324f;
   --deepBlue: #13293d;
   --darkTurquoise: #18435a;
@@ -120,8 +119,9 @@ main {
   height: 500px;
   border-radius: 20px;
   margin: 20px;
-  align-content: center;
   align-items: center;
+  align-content: center;
+  
 }
 
 #toValue {

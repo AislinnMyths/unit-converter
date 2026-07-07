@@ -3,7 +3,7 @@ export const area = {
   color: "#e9c46a",
   units: [
     { id: "km2", name: "square kilometre", factor: 1000000 },
-    { id: "m2", name: "square  metre", factor: 1 },
+    { id: "m2", name: "square metre", factor: 1 },
     { id: "dm2", name: "square decimetre", factor: 0.01 },
     { id: "cm2", name: "square centimetre", factor: 0.0001 },
     { id: "mm2", name: "square millimetre", factor: 0.000001 },
@@ -68,7 +68,7 @@ export const mass = {
   name: "Mass",
   color: "#e76f51",
   units: [
-    { id: "t", name: "metric tone", factor: 1000000 },
+    { id: "t", name: "metric tonne", factor: 1000000 },
     { id: "kg", name: "kilogram", factor: 1000 },
     { id: "g", name: "gram", factor: 1 },
     { id: "mg", name: "milligram", factor: 0.001 },
@@ -96,7 +96,7 @@ export const temperature = {
   color: "#f94144",
   units: [
     { id: "c", name: "Celsius" },
-    { id: "f", name: "Farenheit" },
+    { id: "f", name: "Fahrenheit" },
     { id: "k", name: "Kelvin" },
   ],
 };

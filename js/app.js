@@ -20,8 +20,9 @@ let currentConverter = converters.length;
 let lastValidValue = "";
 let exchangeRates = null;
 
-//* --------------------- FUNTCIONS ---------------------
+//* --------------------- FUNCTIONS ---------------------
 
+//Fill units selects with options from the current converter
 function fillUnitSelects() {
   fromUnit.innerHTML = "";
   toUnit.innerHTML = "";
@@ -38,6 +39,7 @@ function fillUnitSelects() {
   toUnit.selectedIndex = 1;
 }
 
+//Updates the active converter, reset inputs and refreshes the UI
 function updateConverter(converter) {
   currentConverter = converter;
   convTitle.textContent = converter.name;
@@ -50,6 +52,7 @@ function updateConverter(converter) {
   document.documentElement.style.setProperty("--accent", converter.color);
 }
 
+//Check that the input contains only valid characters
 function validateInput() {
   const regex = /^[0-9]*[.,]?[0-9]*$/;
   if (regex.test(fromValue.value)) {
@@ -60,15 +63,17 @@ function validateInput() {
   }
 }
 
+// Routes conversion to the appropriate function based on the active converter
 function calculus() {
+  if (!fromValue.value) {
+    return;
+  }
+
   if (currentConverter === converters.temperature) {
     convertTemperature();
   } else if (currentConverter === converters.currency) {
     convertCurrency();
   } else {
-    if (!fromValue.value) {
-      return;
-    }
     const fromUnitData = currentConverter.units.find(
       (unit) => unit.id === fromUnit.value,
     );
@@ -77,15 +82,20 @@ function calculus() {
     );
 
     const result =
-      Number(fromValue.value.replace(",", ".")) *
-      (fromUnitData.factor / toUnitData.factor);
+      parseInput(fromValue.value) * (fromUnitData.factor / toUnitData.factor);
     const rounded = Number(result.toFixed(4));
     toValue.textContent = rounded;
   }
 }
 
+// Parses input string to number, replacing comma with dot for decimal compatibility
+function parseInput(value) {
+  return Number(value.replace(",", "."));
+}
+
+//calculations for temperature conversions
 function convertTemperature() {
-  const value = Number(fromValue.value.replace(",", "."));
+  const value = parseInput(fromValue.value);
   switch (`${fromUnit.value}-${toUnit.value}`) {
     case "c-f":
       toValue.textContent = (value * 9) / 5 + 32;
@@ -110,6 +120,7 @@ function convertTemperature() {
   }
 }
 
+//swap the units from ‘from’ to ‘to’ and vice versa
 function swapUnits() {
   const temp = fromUnit.value;
   fromUnit.value = toUnit.value;
@@ -117,6 +128,7 @@ function swapUnits() {
   calculus();
 }
 
+//switches between the dark theme and the normal theme
 function toggleTheme() {
   if (document.documentElement.hasAttribute("data-theme")) {
     document.documentElement.removeAttribute("data-theme");
@@ -128,6 +140,7 @@ function toggleTheme() {
   lucide.createIcons();
 }
 
+// Fetches live exchange rates from the Frankfurter API (base: USD)
 async function fetchRates() {
   try {
     const response = await fetch(
@@ -140,17 +153,16 @@ async function fetchRates() {
   }
 }
 
+//calculations for currency conversions
 function convertCurrency() {
-  if (!fromValue.value) {
-    return;
-  }
   if (!exchangeRates) return;
-  const amount = Number(fromValue.value.replace(",", "."));
+  const amount = parseInput(fromValue.value);
   const fromRate = fromUnit.value === "USD" ? 1 : exchangeRates[fromUnit.value];
   const toRate = toUnit.value === "USD" ? 1 : exchangeRates[toUnit.value];
   toValue.textContent = (amount / fromRate) * toRate;
 }
 
+// Toggles the mobile navigation menu open and closed
 function toggleMenu() {
   navMenu.classList.toggle("open");
 }

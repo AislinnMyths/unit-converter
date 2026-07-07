@@ -4,7 +4,7 @@ A web-based unit conversion app built as a learning project using vanilla HTML, 
 
 ## 📋 Description
 
-Interactive unit converter with multiple categories, dark mode support, and automatic recalculation. No frameworks, no external dependencies (except the currency API).
+Interactive unit converter with multiple categories, dark mode support, and automatic recalculation. No frameworks, no external dependencies (except the currency API). The principles of clean code were applied: DRY, YAGNI, KISS and SSOT.
 
 ## ✨ Features
 

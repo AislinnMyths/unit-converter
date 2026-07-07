@@ -1,5 +1,6 @@
 export const area = {
   name: "Area",
+  color: "#e9c46a",
   units: [
     { id: "km2", name: "square kilometre", factor: 1000000 },
     { id: "m2", name: "square  metre", factor: 1 },
@@ -17,6 +18,7 @@ export const area = {
 
 export const currency = {
   name: "Currency",
+  color: "#ffb703",
   units: [
     { id: "USD", name: "us dollar" },
     { id: "EUR", name: "euro" },
@@ -44,6 +46,7 @@ export const currency = {
 
 export const length = {
   name: "Length",
+  color: "#f4a261",
   units: [
     { id: "km", name: "kilometre", factor: 1000 },
     { id: "m", name: "metre", factor: 1 },
@@ -63,6 +66,7 @@ export const length = {
 
 export const mass = {
   name: "Mass",
+  color: "#e76f51",
   units: [
     { id: "t", name: "metric tone", factor: 1000000 },
     { id: "kg", name: "kilogram", factor: 1000 },
@@ -77,6 +81,7 @@ export const mass = {
 
 export const speed = {
   name: "Speed",
+  color: "#f8961e",
   units: [
     { id: "kmh", name: "kilometre per hour", factor: 1 },
     { id: "ms", name: "metre per second", factor: 3.6 },
@@ -88,6 +93,7 @@ export const speed = {
 
 export const temperature = {
   name: "Temperature",
+  color: "#f94144",
   units: [
     { id: "c", name: "Celsius" },
     { id: "f", name: "Farenheit" },
@@ -97,6 +103,7 @@ export const temperature = {
 
 export const volume = {
   name: "Volume",
+  color: "#f3722c",
   units: [
     { id: "m3", name: "cubic metre", factor: 1000 },
     { id: "hl", name: "hectolitre", factor: 100 },

@@ -46,6 +46,7 @@ function updateConverter(converter) {
   if (currentConverter === converters.currency) {
     fetchRates();
   }
+  document.documentElement.style.setProperty('--accent', converter.color);
 }
 
 function validateInput() {

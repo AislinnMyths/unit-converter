@@ -31,9 +31,7 @@ Interactive unit converter with multiple categories, dark mode support, and auto
 ```
 converter/
 ├── index.html
-├── css/
-│   ├── style.css        # General styles and CSS variables
-│   └── themes.css       # Light and dark mode
+├── style.css        # General styles and CSS variables
 └── js/
     ├── app.js           # Main logic and navigation
     └── data.js          # Units and conversion factors
@@ -66,5 +64,5 @@ Open `index.html` directly in a browser. No server or installation required.
 - [x] Area converter
 - [x] Volume converter
 - [x] Speed converter
-- [ ] Temperature converter
-- [ ] Currency converter (API)
+- [x] Temperature converter
+- [x] Currency converter (API)

@@ -30,6 +30,17 @@ Interactive unit converter with multiple categories, dark mode support, and auto
 | Temperature | Celsius, Fahrenheit, Kelvin |
 | Currency | Real-time exchange rates (API) |
 
+## Project Structure
+
+```
+converter/
+├── index.html
+├── style.css        # General styles and CSS variables
+└── js/
+    ├── app.js           # Main logic and navigation
+    └── data.js          # Units and conversion factors
+```
+
 ## Conversion Logic
 
 Most converters use the **base unit** method:
